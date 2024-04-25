@@ -11,8 +11,15 @@ public class NameChecker {
      * @return True if input is a valid name, else false
      */
     public static boolean check(String input) {
-        // TODO: implement
+        // Check null and length constraints
+        if (input == null || input.length() < 2 || input.length() > 40) {
+            return false;
+        }
 
-        return false;
+        // Regular expression to validate the name
+        // ^[A-Za-z] - Must start with an alphabetic character
+        // (['-]?[A-Za-z]+)* - Subsequent characters can be alphabets that may follow a single quote or a non-consecutive hyphen
+        // $ - End of line
+        return input.matches("^[A-Za-z](['-]?[A-Za-z]+)*$");
     }
 }
