@@ -27,12 +27,12 @@ jobs:
         run: java -version
       - name: Verify Maven version
         run: mvn -version
-      # TODO: Build application with Maven
+      # Build application with Maven
       - name: Build with Maven
-        run: echo '🛠️ build me please 🛠️'
-      # Upload artifacts 
+        run: mvn clean install --batch-mode
+      # Upload artifacts
       - name: Archive
         uses: actions/upload-artifact@v4
         with:
           name: JAR
-          path: target/*.jar
+          path: target/devopslab-java-1.0-SNAPSHOT.jar
